@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+def CV_SDK_DIR = '../../..'
+def NATIVE_LIB_DIR = 'build/lib'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.0-rc2"
+    defaultConfig {
+        applicationId "com.zabuzalabs.ardemoapp"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            ndk {
+                abiFilters "armeabi-v7a"
+            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDirs "$CV_SDK_DIR/$NATIVE_LIB_DIR/"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:design:26.+'
+}
