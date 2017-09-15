@@ -1,4 +1,4 @@
-# SoWhatORB AR Library for Marker Detection for Android
+# SoWhatORB AR Library for Marker Detection on Android
 
 We have been trying to build a marker based AR library on the lines of Vuforia/Wikitude for Android platform. The most reliable open source algorithm we found was ORB on OpenCV platform. 
 When we ran ORB (in Java) on Android, it reduced frame rates from 30 to 5/6. It also slowed down the camera. So we thought to go one layer below from java to c++.  We compiled ORB in a .SO file and created another jar library to access the functions in .SO file. 
@@ -34,11 +34,11 @@ Let’s see how to integrate library to your Android project.
 You can clone this repository and run it on device to see Sample demo app with predefined marker images.
 Scan One of marker images to see basic AR experience. 
 We're not providing any rendering mechanism with this demo, you have to integrate it on
-your on choice like Opengl etc.
+your own choice like Opengl etc.
 
 **To integrate it in your project follow these steps** 
 
-Download bundle of jars from here
+Download bundle of jars from above packages
 
 Put those in your app - libs folder then Rebuild your project
 
